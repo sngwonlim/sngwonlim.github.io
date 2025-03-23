@@ -13,7 +13,7 @@
 
         <!-- 아바타 이미지 -->
         {% if site.resume_avatar == 'true' %}
-        <img src="images/photo3.png" alt="my photo" class="avatar no-print" itemprop="image" style="width: 200px; height: auto;">
+        <img src="images/photo.png" alt="my photo" class="avatar no-print" itemprop="image" style="width: 200px; height: auto;">
         {% endif %}
 
         <!-- 이름 -->
@@ -25,208 +25,206 @@
           <p>{{ site.resume_header_contact_info }}</p>
         </div>
         {% endif %}
-
         <div class="title-bar no-print">
-
           <!-- 직함 -->
           <h2 class="header-title" itemprop="jobTitle">{{ site.resume_title }}</h2>
-
           <!-- 아이콘 링크 -->
           {% include icon-links.html %}
         </div>
-
         <!-- 소개 요약 -->
         <div class="executive-summary" itemprop="description">
-          {{ site.resume_header_intro }}
+          <p>Hi, I'm Seungwon Lim. I'm a researcher at Yonsei University, <a href="https://mirlab.yonsei.ac.kr/">MIRLAB (Multimodal Intelligance Research Lab)</a> advised by <a href="https://yj-yu.github.io/home/">Youngjae Yu</a>.
+          I received my bachelor's degree in Computer Science, and I am currently pursuing an integrated MS/PhD program in Computer Science.
+          </p>
+          <p>My Research questions I want to study and develop are:</p>
+          <div class="research-questions">
+            <ul>
+              <li>How do AI systems determine their actions and utterances?</li>
+              <li>Why do AI systems choose specific actions and utterances?</li>
+            </ul>
+          </div>
         </div>
-
         <!-- 연락 버튼 -->
-        {% if site.resume_looking_for_work == 'yes' %}
+        <!-- {% if site.resume_looking_for_work == 'yes' %}
         <a href="mailto:{{ site.resume_contact_email }}" class="contact-button no-print" itemprop="email">Contact me</a>
         {% elsif site.resume_looking_for_work == 'no' %}
-        <a class="contact-button not-looking no-print">I'm not looking for work right now.</a>
+        <a class="contact-button not-looking no-print">I'm not looking for work right now.</a> -->
         {% endif %}
 
       </header>
 
       <!-- 경력 섹션 -->
-      {% if site.resume_section_experience %}
       <section class="content-section">
 
         <header class="section-header">
-          <h2>Experience</h2>
+          <h2>Publications</h2>
         </header>
 
-        {% for job in site.data.experience %}
-        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
-          <h3 class="resume-item-title" itemprop="name">{{ job.company }}</h3>
-          <h4 class="resume-item-details" itemprop="description">{{ job.position }} &bull; {{ job.duration }}</h4>
-          <p class="resume-item-copy">{{ job.summary }}</p>
+        {% for publication in site.data.publications %}
+        <div class="resume-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
+          <div class="publication-container">
+            {% if publication.image %}
+            <div class="publication-image">
+              <img src="images/publications/{{ publication.image }}" alt="Publication thumbnail">
+            </div>
+            {% endif %}
+            <div class="publication-content">
+              <h3 class="resume-item-title" itemprop="name">
+                {{ publication.title }}
+              </h3>
+              {% if publication.url contains 'arxiv.org' %}
+                {% assign arxiv_id = publication.url | split: '/' | last %}
+                <p class="arxiv-container">
+                  <a href="{{ publication.url }}" class="arxiv-link">
+                    <img src="https://img.shields.io/badge/arXiv-{{ arxiv_id }}-b31b1b.svg" alt="arXiv">
+                  </a>
+                </p>
+              {% endif %}
+              <p class="resume-item-authors" itemprop="author">
+                {% assign author_list = publication.authors | split: ", " %}
+                {% for author in author_list %}
+                  {% if author contains "Seungwon Lim" %}
+                    <span class="author-highlight">{{ author }}</span>{% unless forloop.last %}, {% endunless %}
+                  {% else %}
+                    <span class="author-normal">{{ author }}</span>{% unless forloop.last %}, {% endunless %}
+                  {% endif %}
+                {% endfor %}
+              </p>
+              <p class="resume-item-journal {% if publication.journal == 'Under Review' %}journal-under-review{% endif %}">
+                {{ publication.journal }}{% if publication.year %} &bull; {{ publication.year }}{% endif %}
+              </p>
+              <p class="resume-item-copy">{{ publication.summary | markdownify }}</p>
+            </div>
+          </div>
         </div><!-- end of resume-item -->
         {% endfor %}
 
       </section>
-      {% endif %}
 
 
-      <!-- 교육 섹션 -->
-      {% if site.resume_section_education %}
-      <section class="content-section">
-        <header class="section-header">
-          <h2>Education</h2>
-        </header>
 
-        {% for education in site.data.education %}
-        <div class="resume-item" itemscope itemprop="alumniOf" itemtype="http://schema.org/CollegeOrUniversity">
-          <h3 class="resume-item-title" itemprop="name">{{ education.uni }}</h3>
-          <h4 class="resume-item-details group" itemprop="description">{{ education.degree }} &bull; {{ education.year }}</h4>
-          <h5 class="resume-item-details award-title" itemprop="description">{{ education.award }}</h5>
-          <ul class="resume-item-list">
-            {% for award in education.awards %}
-            <li>{{ award.award }}</li>
-            {% endfor %}
-          </ul>
-          <p class="resume-item-copy">{{ education.summary }}</p>
-        </div>
-        {% endfor %}
-      </section>
-      {% endif %}
-
-
-      <!-- 프로젝트 섹션 -->
-      {% if site.resume_section_projects %}
-      <section class="content-section">
-        <header class="section-header">
-          <h2>Projects</h2>
-        </header>
-
-        {% for project in site.data.projects %}
-        <div class="resume-item" itemscope itemtype="http://schema.org/CreativeWork">
-          <meta itemprop="creator" content="{{ site.resume_name }}" itemtype="http://schema.org/Person" />
-          <h3 class="resume-item-title" itemprop="name">{% if project.url %}<a href="{{ project.url }}" itemprop="url">{{ project.project }}</a>{% else %}{{ project.project }}{% endif %}</h3>
-          <h4 class="resume-item-details" itemprop="description">{{ project.role }}  &bull; {{ project.duration }}</h4>
-          <p class="resume-item-copy">{{ project.description }}</p>
-        </div>
-        {% endfor %}
-
-      </section>
-      {% endif %}
-
-      <!-- 스킬 섹션 -->
-      {% if site.resume_section_skills %}
-      <section class="content-section">
-
-        <header class="section-header">
-          <h2>Skills</h2>
-        </header>
-        {% for skill in site.data.skills %}
-        <div class="resume-item">
-          <h4 class="resume-item-details">{{ skill.skill }}</h4>
-          <p class="resume-item-copy">{{ skill.description }}</p>
-        </div>
-        {% endfor %}
-
-      </section>
-      {% endif %}
-
-      <!-- 수상 및 인정 섹션 -->
-      {% if site.resume_section_recognition %}
-      <section class="content-section">
-
-        <header class="section-header">
-          <h2>Recognition</h2>
-        </header>
-
-        {% for recognition in site.data.recognitions %}
-        <div class="resume-item">
-          <h3 class="resume-item-title" itemprop="award">{{ recognition.award }}</h3>
-          <h4 class="resume-item-details">{{ recognition.organization }} &bull; {{ recognition.year }}</h4>
-          <p class="resume-item-copy">{{ recognition.summary }}</p>
-        </div>
-        {% endfor %}
-
-      </section>
-      {% endif %}
-
-      <!-- 소속 단체 섹션 -->
-      {% if site.resume_section_associations %}
-      <section class="content-section">
-
-        <header class="section-header">
-          <h2>Associations</h2>
-        </header>
-
-        {% for association in site.data.associations %}
-        <div class="resume-item" itemscope itemprop="memberOf" itemtype="http://schema.org/Organization">
-          <h3 class="resume-item-title" itemprop="name">{% if association.url %}<a href="{{ association.url }}">{{ association.organization }}</a>{% else %}{{ association.organization }}{% endif %}</h3>
-          <h4 class="resume-item-details" itemprop="description">{{ association.role }} &bull; {{ association.year }}</h4>
-          <p class="resume-item-copy">{{ association.summary }}</p>
-        </div>
-        {% endfor %}
-
-      </section>
-      {% endif %}
-
-      <!-- 관심사 섹션 -->
-      {% if site.resume_section_interests %}
-      <section class="content-section">
-
-        <header class="section-header">
-          <h2>Outside Interests</h2>
-        </header>
-
-        <div class="resume-item">
-          <ul class="resume-item-list">
-            {% for interest in site.data.interests %}
-            <li>{{ interest.description }}</li>
-            {% endfor %}
-          </ul>
-        </div>
-
-      </section>
-      {% endif %}
-
-      <!-- 추가 링크 섹션 -->
-      {% if site.resume_section_links %}
-      <section class="content-section">
-
-        <header class="section-header">
-          <h2>Additional Links</h2>
-        </header>
-
-        <div class="resume-item">
-          <ul class="resume-item-list">
-            {% for link in site.data.links %}
-            <li><a href={{ link.url }} itemprop="url">{{ link.description }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-
-      </section>
-      {% endif %}
-
-      <!-- 인쇄용 소셜 링크 -->
-      {% if site.resume_print_social_links %}
-      <section class="content-section print-only">
-
-        <header class="section-header">
-          <h2>Social Links</h2>
-        </header>
-
-        <div class="resume-item">
-        {% include print-social-links.html %}
-        </div>
-
-      </section>
-      {% endif %}
-
-      <!-- 푸터 -->
-      <footer class="page-footer">
-        <p class="footer-line">Made by <a href="http://twitter.com/jglovier">@jglovier</a>. Fork me on <a href="https://github.com/jglovier/resume-template">GitHub</a>.</p>
-        <p class="footer-line">If this is your live resume, you can modify or remove this part. ;-)</p>
-      </footer>
 
     </div>
+
+    <style>
+      .resume-item-title {
+        margin-bottom: 0.0em;
+      }
+      .resume-item-authors {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 0;
+        margin-bottom: 0.2em;
+      }
+      .author-highlight {
+        font-weight: bold;
+        color: #000;
+      }
+      .author-normal {
+        font-weight: normal;
+      }
+      .resume-item-journal {
+        font-size: 1em;
+        font-weight: bold;
+        color: #000;
+        margin-top: 0;
+        margin-bottom: 0.3em;
+      }
+      .journal-under-review {
+        font-weight: normal;
+        color: #666;
+      }
+      .resume-item-copy {
+        margin-top: 0;
+      }
+      .arxiv-container {
+        margin-top: 0.0em;
+        margin-bottom: 0.2em;
+      }
+      .arxiv-link {
+        text-decoration: none;
+      }
+      .arxiv-link img {
+        vertical-align: middle;
+      }
+      .publication-container {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      .publication-image {
+        flex: 0 0 200px;
+      }
+      .publication-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        border: 3px solid #ddd;
+      }
+      .publication-content {
+        flex: 1;
+      }
+      
+      /* 링크 스타일 개선 */
+      .executive-summary a {
+        color: #0077cc;
+        text-decoration: none;
+        position: relative;
+        font-weight: 500;
+        padding: 0 2px;
+        transition: all 0.3s ease;
+      }
+      
+      /* 밑줄 효과 */
+      .executive-summary a::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #0077cc;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease;
+      }
+      
+      /* 호버 효과 */
+      .executive-summary a:hover {
+        color: #005fa3;
+        background-color: rgba(0, 119, 204, 0.08);
+        border-radius: 3px;
+      }
+      
+      .executive-summary a:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+      
+      /* 연구 질문 스타일 */
+      .research-questions {
+        margin-left: 20px;
+        padding-left: 15px;
+        border-left: 3px solid #0077cc;
+      }
+      
+      .research-questions ul {
+        margin: 8px 0;
+        padding-left: 20px;
+        list-style-type: disc;
+      }
+      
+      .research-questions li {
+        margin: 8px 0;
+        line-height: 1.5;
+        color: #333;
+      }
+      
+      .research-questions li::marker {
+        color: #0077cc;
+        font-size: 1.2em;
+      }
+    </style>
 
   </body>
 
