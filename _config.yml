@@ -1,7 +1,11 @@
 # Site settings
-title: "Jekyll Resume Template"
+title: "Seungwon Lim"
 description: "A resume template for Jekyll and GitHub Pages sites."
 
+
+
+baseurl: ""
+url: "https://pull-ups.github.io"
 # Build settings
 markdown: kramdown
 sass:
@@ -9,6 +13,7 @@ sass:
   style: compressed
 
 # Resume settings
+resume_theme: default
 resume_avatar:                  "true"
 resume_name:                    "Seungwon Lim"
 resume_title:                   ""
