@@ -90,7 +90,12 @@
               <p class="resume-item-journal {% if publication.journal == 'Under Review' %}journal-under-review{% endif %}">
                 {{ publication.journal }}{% if publication.year %} &bull; {{ publication.year }}{% endif %}
               </p>
-              <p class="resume-item-copy">{{ publication.summary | markdownify }}</p>
+              <!-- TLDR 토글 (div로 변경) -->
+              <div class="tldr-toggle">See tldr</div>
+              <!-- TLDR 내용 -->
+              <div class="tldr-details">
+                <p class="resume-item-copy">{{ publication.summary | markdownify }}</p>
+              </div>
             </div>
           </div>
         </div><!-- end of resume-item -->
@@ -104,65 +109,86 @@
     </div>
 
     <style>
+      /* ==========================================================================
+         General Styles
+         ========================================================================== */
       .resume-item-title {
-        margin-bottom: 0.0em;
+        margin-bottom: 0.1em; /* Slightly adjusted for consistency */
       }
-      .resume-item-authors {
-        font-size: 0.9em;
-        color: #666;
-        margin-top: 0;
-        margin-bottom: 0.2em;
-      }
-      .author-highlight {
-        font-weight: bold;
-        color: #000;
-      }
-      .author-normal {
-        font-weight: normal;
-      }
-      .resume-item-journal {
-        font-size: 1em;
-        font-weight: bold;
-        color: #000;
-        margin-top: 0;
-        margin-bottom: 0.3em;
-      }
-      .journal-under-review {
-        font-weight: normal;
-        color: #666;
-      }
+
       .resume-item-copy {
         margin-top: 0;
+        line-height: 1.4; /* Added for potentially better readability */
       }
-      .arxiv-container {
-        margin-top: 0.0em;
-        margin-bottom: 0.2em;
-      }
-      .arxiv-link {
-        text-decoration: none;
-      }
-      .arxiv-link img {
-        vertical-align: middle;
-      }
+
+      /* ==========================================================================
+         Publication Section Styles
+         ========================================================================== */
       .publication-container {
         display: flex;
         gap: 20px;
         align-items: center;
+        margin-bottom: 1.5em; /* Added spacing between publication items */
       }
+
       .publication-image {
         flex: 0 0 200px;
       }
+
       .publication-image img {
         width: 100%;
         height: auto;
         border-radius: 4px;
         border: 3px solid #ddd;
+        display: block; /* Prevent potential extra space below image */
       }
+
       .publication-content {
         flex: 1;
       }
-      
-      /* 링크 스타일 개선 */
+
+      .resume-item-authors {
+        font-size: 0.9em;
+        color: #666;
+        margin: 0 0 0.3em; /* Consolidated margins */
+      }
+
+      .author-highlight {
+        font-weight: bold;
+        color: #000;
+      }
+
+      .author-normal {
+        font-weight: normal;
+      }
+
+      .resume-item-journal {
+        font-size: 1em;
+        font-weight: bold;
+        color: #000;
+        margin: 0 0 0.5em; /* Consolidated margins */
+      }
+
+      .journal-under-review {
+        font-weight: normal;
+        color: #666;
+      }
+
+      .arxiv-container {
+        margin: 0.1em 0 0.3em; /* Consolidated margins */
+      }
+
+      .arxiv-link {
+        text-decoration: none;
+      }
+
+      .arxiv-link img {
+        vertical-align: middle;
+      }
+
+      /* ==========================================================================
+         Executive Summary & Links
+         ========================================================================== */
       .executive-summary a {
         color: #0077cc;
         text-decoration: none;
@@ -171,8 +197,7 @@
         padding: 0 2px;
         transition: all 0.3s ease;
       }
-      
-      /* 밑줄 효과 */
+
       .executive-summary a::after {
         content: '';
         position: absolute;
@@ -185,43 +210,172 @@
         transform-origin: bottom right;
         transition: transform 0.3s ease;
       }
-      
-      /* 호버 효과 */
+
       .executive-summary a:hover {
         color: #005fa3;
         background-color: rgba(0, 119, 204, 0.08);
         border-radius: 3px;
       }
-      
+
       .executive-summary a:hover::after {
         transform: scaleX(1);
         transform-origin: bottom left;
       }
-      
-      /* 연구 질문 스타일 */
+
+      /* ==========================================================================
+         Research Questions (If used elsewhere, keep; otherwise can be removed if only for example)
+         ========================================================================== */
       .research-questions {
         margin-left: 20px;
         padding-left: 15px;
         border-left: 3px solid #0077cc;
       }
-      
+
       .research-questions ul {
         margin: 8px 0;
         padding-left: 20px;
         list-style-type: disc;
       }
-      
+
       .research-questions li {
         margin: 8px 0;
         line-height: 1.5;
         color: #333;
       }
-      
+
       .research-questions li::marker {
         color: #0077cc;
         font-size: 1.2em;
       }
+
+      /* ==========================================================================
+         TLDR Toggle Styles
+         ========================================================================== */
+      .tldr-toggle {
+        display: none; /* Hidden by default, shown in media query */
+        cursor: pointer;
+        font-size: 0.9em;
+        color: #0077cc;
+        margin: 8px 0 5px; /* Consolidated margins */
+        padding-left: 15px;
+        position: relative;
+        user-select: none;
+        line-height: 1; /* Ensure consistent height */
+      }
+
+      .tldr-toggle::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 6px solid #0077cc;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .tldr-toggle.active::before {
+        transform: translateY(-50%) rotate(90deg);
+      }
+
+      .tldr-toggle:hover {
+        text-decoration: underline;
+      }
+
+      .tldr-details {
+        display: block; /* Visible by default, hidden in media query */
+        /* The resume-item-copy style applies to the <p> inside */
+      }
+
+      /* ==========================================================================
+         Media Queries (Mobile)
+         ========================================================================== */
+      @media (max-width: 768px) {
+        .publication-container {
+          align-items: flex-start; /* Align items to top on mobile */
+          gap: 15px;
+        }
+
+        /* Removed redundant .publication-image rules, base styles apply */
+        /* Removed redundant .publication-content rule */
+
+        /* Use more specific selector for the title on mobile to override base h3 styles */
+        .publication-content .resume-item-title { /* Increased specificity */
+          font-size: 1.0rem; /* Adjusted font size for mobile, feel free to change */
+          margin-bottom: 0.2em; /* Added small margin back for spacing */
+        }
+
+        .tldr-toggle {
+          display: inline-block; /* Show toggle on mobile */
+        }
+
+        .tldr-details {
+          display: none; /* Hide details by default on mobile */
+        }
+
+        .tldr-details.visible {
+          display: block; /* Show details when toggled */
+        }
+      }
     </style>
+
+    <!-- TLDR 토글 스크립트 -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Select all toggle elements (divs)
+        const toggleButtons = document.querySelectorAll('.tldr-toggle');
+
+        toggleButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            // Find the next sibling element which should be the details div
+            const details = this.nextElementSibling;
+
+            // Check if the next sibling is the details container
+            if (details && details.classList.contains('tldr-details')) {
+              // Toggle the 'active' class on the button itself for styling (e.g., arrow rotation)
+              this.classList.toggle('active');
+              // Toggle the 'visible' class on the details container to show/hide it
+              details.classList.toggle('visible');
+
+              // Update button text based on visibility state
+              // Need to re-add the icon space logic if text changes wipe it out
+              const isVisible = details.classList.contains('visible');
+              // Preserve the ::before pseudo-element by not overwriting entire textContent
+              // Instead, manage text via a span or adjust approach if needed.
+              // For simplicity, keeping original text changing logic. Consider accessibility.
+              if (isVisible) {
+                  // Note: Direct textContent manipulation removes ::before content rendering space.
+                  // A better approach involves a span inside the toggle or adjusting padding dynamically.
+                  // Reverting to simpler text change for now as per original code.
+                  this.textContent = 'Hide tldr';
+              } else {
+                  this.textContent = 'See tldr';
+              }
+              // Re-apply necessary styles if textContent change affects layout (like padding)
+              // This part is tricky with direct textContent change. Original JS assumed it worked visually.
+            } else {
+              console.error('Could not find tldr-details element for', this);
+            }
+          });
+        });
+
+        // Ensure initial text is correct if JS runs after potential CSS hiding
+        // This part is less critical if CSS handles initial state correctly
+        toggleButtons.forEach(button => {
+            const details = button.nextElementSibling;
+            if (details && details.classList.contains('tldr-details')) {
+                if (!details.classList.contains('visible')) {
+                   // Ensure initial text is 'See tldr' if details are hidden initially (e.g., on mobile)
+                   // Again, care needed not to break the pseudo-element space.
+                   // button.textContent = 'See tldr'; // Uncomment if needed, but be aware of side-effects
+                }
+            }
+        });
+      });
+    </script>
 
   </body>
 
