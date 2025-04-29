@@ -91,7 +91,7 @@
                 {{ publication.journal }}{% if publication.year %} &bull; {{ publication.year }}{% endif %}
               </p>
               <!-- TLDR 토글 (div로 변경) -->
-              <div class="tldr-toggle">See tldr</div>
+              <div class="tldr-toggle">See More</div>
               <!-- TLDR 내용 -->
               <div class="tldr-details">
                 <p class="resume-item-copy">{{ publication.summary | markdownify }}</p>
@@ -255,7 +255,7 @@
         display: none; /* Hidden by default, shown in media query */
         cursor: pointer;
         font-size: 0.9em;
-        color: #0077cc;
+        color: #000000;
         margin: 8px 0 5px; /* Consolidated margins */
         padding-left: 15px;
         position: relative;
@@ -273,7 +273,7 @@
         height: 0;
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
-        border-left: 6px solid #0077cc;
+        border-left: 6px solid #000000;
         transition: transform 0.2s ease-in-out;
       }
 
@@ -355,9 +355,9 @@
                   // Note: Direct textContent manipulation removes ::before content rendering space.
                   // A better approach involves a span inside the toggle or adjusting padding dynamically.
                   // Reverting to simpler text change for now as per original code.
-                  this.textContent = 'Hide tldr';
+                  this.textContent = 'Hide';
               } else {
-                  this.textContent = 'See tldr';
+                  this.textContent = 'See More';
               }
               // Re-apply necessary styles if textContent change affects layout (like padding)
               // This part is tricky with direct textContent change. Original JS assumed it worked visually.
