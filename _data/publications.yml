@@ -8,7 +8,7 @@
 - title: "Persona Dynamics: Unveiling the Impact of Persona Traits on Agents in Text-Based Games"
   authors: Seungwon Lim, Seungbeen Lee, Dongjun Min, Youngjae Yu 
   url: https://arxiv.org/abs/2504.06868
-  journal: Under Review
+  journal: ACL2025 Main
   image: panda.png
   summary: <strong>TLDR;</strong> We introduce <strong>PANDA</strong>, which incorporates <strong>Human Personality Traits</strong> into AI agents for <strong>Text-based Games</strong> and examines how these traits impact their behavior and performance.
 
