@@ -1,3 +1,14 @@
+
+- title: "When AI co-scientists fail: SPOT-a benchmark for automated verification of scientific research"
+  authors: Guijin Son, Jiwoo Hong, Honglu Fan, Heejeong Nam, Hyunwoo Ko, Seungwon Lim, Jinyeop Song, Jinha Choi, Gonçalo Paulo, Youngjae Yu, Stella Biderman
+  url: https://arxiv.org/abs/2505.11855
+  journal: Under Review
+  image: spot.png
+  summary: <strong>TLDR;</strong> We introduce <strong>SPOT</strong>, a benchmark for automated verification of scientific research, and show a substantial margin exists for AI-assisted academic verification.
+
+
+
+
 - title: "VisEscape: A Benchmark for Evaluating Exploration-driven Decision-making in Virtual Escape Rooms"
   authors: Seungwon Lim, Sungwoong Kim, Jihwan Yu, Sungjae Lee, Jiwan Chung, Youngjae Yu
   url: https://arxiv.org/abs/2503.14427
