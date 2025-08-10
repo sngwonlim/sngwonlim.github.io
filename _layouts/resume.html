@@ -36,6 +36,10 @@
           <p>Hi, I'm Seungwon Lim. I'm a researcher at Yonsei University, <a href="https://mirlab.yonsei.ac.kr/">MIRLAB (Multimodal Intelligance Research Lab)</a> advised by <a href="https://yj-yu.github.io/home/">Youngjae Yu</a>.
           I received my bachelor's degree in Computer Science, and I am currently pursuing an integrated MS/PhD program in Computer Science.
           </p>
+          <p>
+            Currently, I'm working as a research scientist intern at <img src="images/lgai.png" alt="LG AI Research Logo" class="internship-logo">, Exaone Lab. I am conducting research for making <strong>advanced foundation large language models.</strong>
+          </p>
+          
           <p>My research question centers on developing <strong>reliable agent systems</strong>. To achieve this, I am currently focusing on
             agent’s <strong>reasoning</strong>, <strong>action-decision</strong>, and <strong>human-centric AI</strong>.
         </p>
@@ -287,6 +291,23 @@
       .tldr-details {
         display: block; /* Visible by default, hidden in media query */
         /* The resume-item-copy style applies to the <p> inside */
+      }
+
+      .internship-container {
+        display: flex;
+        align-items: center;
+        gap: 20px; /* Adjust the gap between text and logo */
+        margin-top: 0em; /* Add some space above the container */
+      }
+
+      .internship-container p {
+        margin: 0; /* Remove default paragraph margin */
+      }
+
+      .internship-logo {
+        height: 25px; /* Adjust logo height */
+        width: auto; /* Maintain aspect ratio */
+        vertical-align: top; /* Align image vertically with text */
       }
 
       /* ==========================================================================
