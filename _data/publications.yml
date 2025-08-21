@@ -1,3 +1,11 @@
+
+- title: "VisEscape: A Benchmark for Evaluating Exploration-driven Decision-making in Virtual Escape Rooms"
+  authors: Seungwon Lim, Sungwoong Kim, Jihwan Yu, Sungjae Lee, Jiwan Chung, Youngjae Yu
+  url: https://arxiv.org/abs/2503.14427
+  journal: EMNLP 2025 Main
+  image: visescape.png
+  summary: <strong>TLDR;</strong> We introduce <strong>VisEscape</strong> inspired by Escape Room games, and evaluate the <strong>Reasoning</strong> and <strong>Decision-making</strong> of diverse MLLMs in exploration-driven and dynamic environments.
+
 - title: "Verifying the Verifiers: Unveiling Pitfalls and Potentials in Fact Verifiers"
   authors: Wooseok Seo, Seungju Han, Jaehun Jung, Benjamin Newman, Seungwon Lim, Seungbeen Lee, Ximing Lu, Yejin Choi, Youngjae Yu
   url: https://arxiv.org/abs/2506.13342
@@ -15,13 +23,6 @@
 
 
 
-
-- title: "VisEscape: A Benchmark for Evaluating Exploration-driven Decision-making in Virtual Escape Rooms"
-  authors: Seungwon Lim, Sungwoong Kim, Jihwan Yu, Sungjae Lee, Jiwan Chung, Youngjae Yu
-  url: https://arxiv.org/abs/2503.14427
-  journal: Under Review
-  image: visescape.png
-  summary: <strong>TLDR;</strong> We introduce <strong>VisEscape</strong> inspired by Escape Room games, and evaluate the <strong>Reasoning</strong> and <strong>Decision-making</strong> of diverse MLLMs in exploration-driven and dynamic environments.
 
 - title: "Persona Dynamics: Unveiling the Impact of Persona Traits on Agents in Text-Based Games"
   authors: Seungwon Lim, Seungbeen Lee, Dongjun Min, Youngjae Yu 
