@@ -1,3 +1,24 @@
+- title: "PAC-BENCH: Evaluating Multi-Agent Collaboration under Privacy Constraints"
+  image: comingsoon.jpg
+  journal: ACL2026 Findings
+
+
+
+
+- title: "Learning to Comply: Workflow-Grounded Environment Generation for Training Procedurally Compliant Agents"
+  authors:  Seungwon Lim*, Minu Kim*, Seokhee Hong, Jinyoung Yeo, Se-Young Yun, Joonkee Kim
+  image: workflow.png
+  journal: Under Review
+  
+
+
+- title: "K-EXAONE Technical Report"
+  authors: <strong>LG AI Research</strong>
+  url: https://arxiv.org/abs/2601.01739
+  image: kexaone.png
+  summary: "<strong>Contribution</strong>: Contributed to the <strong>Tool-use agentic task</strong> by constructing a <strong>Scalable synthetic tool-use environment</strong> and defining <strong>Task-wise valid and verifiable criteria</strong>."
+  
+
 
 - title: "VisEscape: A Benchmark for Evaluating Exploration-driven Decision-making in Virtual Escape Rooms"
   authors: Seungwon Lim, Sungwoong Kim, Jihwan Yu, Sungjae Lee, Jiwan Chung, Youngjae Yu
