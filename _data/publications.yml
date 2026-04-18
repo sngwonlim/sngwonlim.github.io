@@ -1,16 +1,26 @@
 - title: "PAC-BENCH: Evaluating Multi-Agent Collaboration under Privacy Constraints"
-  image: comingsoon.jpg
+  authors: Minjun Park, Donghyun Kim, Hyeonjong Ju, Seungwon Lim, Dongwook Choi, Taeyoon Kwon, Minju Kim and Jinyoung Yeo
+  url: https://arxiv.org/abs/2604.11523
   journal: ACL2026 Findings
-
+  image: pac.png
+  
 
 
 
 - title: "Learning to Comply: Workflow-Grounded Environment Generation for Training Procedurally Compliant Agents"
-  authors:  Seungwon Lim*, Minu Kim*, Seokhee Hong, Jinyoung Yeo, Se-Young Yun, Joonkee Kim
+  authors:  Seungwon Lim*, Minu Kim*, Seokhee Hong, Jinyoung Yeo, Se-Young Yun and Joonkee Kim
   image: workflow.png
   journal: Under Review
   
 
+
+
+- title: "EXAONE 4.5 Technical Report"
+  authors: <strong>LG AI Research</strong>
+  url: https://arxiv.org/abs/2604.08644
+  image: exaone4.5.png
+  summary: "<strong>Contribution</strong>: Contributed to the <strong>Tool-use agentic task</strong> by constructing a <strong>Scalable synthetic tool-use environment</strong> with complex constraints."
+  
 
 - title: "K-EXAONE Technical Report"
   authors: <strong>LG AI Research</strong>
