@@ -1,9 +1,3 @@
-- title: "PAC-BENCH: Evaluating Multi-Agent Collaboration under Privacy Constraints"
-  authors: Minjun Park, Donghyun Kim, Hyeonjong Ju, Seungwon Lim, Dongwook Choi, Taeyoon Kwon, Minju Kim and Jinyoung Yeo
-  url: https://arxiv.org/abs/2604.11523
-  journal: ACL2026 Findings
-  image: pac.png
-  
 
 
 
@@ -11,6 +5,12 @@
   authors:  Seungwon Lim*, Minu Kim*, Seokhee Hong, Jinyoung Yeo, Se-Young Yun and Joonkee Kim
   image: workflow.png
   journal: COLM2026
+  
+- title: "PAC-BENCH: Evaluating Multi-Agent Collaboration under Privacy Constraints"
+  authors: Minjun Park, Donghyun Kim, Hyeonjong Ju, Seungwon Lim, Dongwook Choi, Taeyoon Kwon, Minju Kim and Jinyoung Yeo
+  url: https://arxiv.org/abs/2604.11523
+  journal: ACL2026 Findings
+  image: pac.png
   
 
 
