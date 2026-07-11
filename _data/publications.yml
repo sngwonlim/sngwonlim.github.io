@@ -5,14 +5,38 @@
   authors:  Seungwon Lim*, Minu Kim*, Seokhee Hong, Jinyoung Yeo, Se-Young Yun and Joonkee Kim
   image: workflow.png
   journal: COLM2026
-  
+  summary: <strong>TLDR;</strong> We show that <strong>scalable workflow-grounded data generation and procedure-aware rewards</strong> together improve <strong>procedural compliance in tool-using agents</strong>.
+
+
+- title: "A11yn: Aligning LLMs for Web Accessibility-Aware UI Generation"
+  authors:  Janghan Yoon, Jaegwan Cho, Junhyeok Kim, Jiwan Chung, Jaehyun Jeon, Seungwon Lim, Youngjae Yu
+  image: a11yn.png
+  url: https://arxiv.org/abs/2510.13914
+  journal: COLM2026
+  summary: <strong>TLDR;</strong> We introduce <strong>A11yn</strong>, the first method for aligning code-generating LLMs <strong>to produce web accessibility-aware web UIs</strong>.
+
+
+- title: "The Wedge Questions: Latent Cultural Boundaries in LLMs via Persona Projection Divergence"
+  authors:  Yejin Son, Yongjin Yang, Ryan Faulkner, Matt Ratto, Seungwon Lim, Youngjae Yu, Zhijing Jin
+  image: wedge.png
+  url: https://openreview.net/forum?id=zHQuHMzOuD
+  journal: ICML2026 Workshop (Pluralistic Alignment)
+  summary: <strong>TLDR;</strong> We show that post-training alignment may hide cultural differences, and suggest <strong>Persona Projection Divergence (PPD)</strong> to expose these hidden internal cultural boundaries.
+
+
 - title: "PAC-BENCH: Evaluating Multi-Agent Collaboration under Privacy Constraints"
   authors: Minjun Park, Donghyun Kim, Hyeonjong Ju, Seungwon Lim, Dongwook Choi, Taeyoon Kwon, Minju Kim and Jinyoung Yeo
   url: https://arxiv.org/abs/2604.11523
   journal: ACL2026 Findings
+  summary: <strong>TLDR;</strong> We introduce <strong>PAC-BENCH</strong>, a new benchmark designed to evaluate how multiple AI agents collaborate under privacy constraints.
   image: pac.png
   
-
+- title: "Towards Direct Evaluation of Harness Optimizers via Priority Ranking"
+  authors: Kai Tzu-iunn Ong, Minseok Kang, Dongwook Choi, Junhee Cho, Seungju Kim, Seungwon Lim, Geunha Jang, Minwoo Oh, Bogyung Jeong, Sunghwan Kim, Taeyoon Kwon, Jinyoung Yeo
+  image: harness.png
+  url: https://arxiv.org/abs/2605.22505
+  journal: Under Review
+  summary: <strong>TLDR;</strong> We introduce <strong>SHOR</strong>, a dataset of optimization scenarios that enables <strong>priority ranking to directly evaluate and predict the true capabilities of harness optimizers</strong>.
 
 
 - title: "EXAONE 4.5 Technical Report"
