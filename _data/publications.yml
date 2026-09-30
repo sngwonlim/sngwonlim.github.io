@@ -1,9 +1,26 @@
 
 
 
+- title: "Towards Direct Evaluation of Harness Optimizers via Priority Ranking"
+  authors: Kai Tzu-iunn Ong, Minseok Kang, Dongwook Choi, Junhee Cho, Seungju Kim, Seungwon Lim, Geunha Jang, Minwoo Oh, Bogyung Jeong, Sunghwan Kim, Taeyoon Kwon, Jinyoung Yeo
+  image: harness.png
+  url: https://arxiv.org/abs/2605.22505
+  journal: NeurIPS2026
+  summary: <strong>TLDR;</strong> We introduce <strong>SHOR</strong>, a dataset of optimization scenarios that enables <strong>priority ranking to directly evaluate and predict the true capabilities of harness optimizers</strong>.
+
+
+- title: "Apples on the Table? Evaluating Text-Guided 3D Scene Synthesis via Fine-Grained Constraint Verification"
+  authors: Minseok Kang, Dongwook Choi, Gyeom Hwangbo, Seungwon Lim, Kai Tzu-iunn Ong, Jinyoung Yeo
+  image: lego.png
+  url: https://arxiv.org/abs/2511.03001
+  journal: EMNLP2026
+  summary: <strong>TLDR;</strong> We introduce <strong>LEGO</strong>, a benchmark pairing user descriptions with human-annotated constraints, and <strong>LEGO-Eval</strong>, which verifies each atomic constraint by grounding textual references to 3D objects and reasoning about their spatial relationships.
+
+
 - title: "Learning to Comply: Workflow-Grounded Environment Generation for Training Procedurally Compliant Agents"
   authors:  Seungwon Lim*, Minu Kim*, Seokhee Hong, Jinyoung Yeo, Se-Young Yun and Joonkee Kim
   image: workflow.png
+  url: https://openreview.net/forum?id=VydHPHBh1q
   journal: COLM2026
   summary: <strong>TLDR;</strong> We show that <strong>scalable workflow-grounded data generation and procedure-aware rewards</strong> together improve <strong>procedural compliance in tool-using agents</strong>.
 
@@ -31,14 +48,6 @@
   summary: <strong>TLDR;</strong> We introduce <strong>PAC-BENCH</strong>, a new benchmark designed to evaluate how multiple AI agents collaborate under privacy constraints.
   image: pac.png
   
-- title: "Towards Direct Evaluation of Harness Optimizers via Priority Ranking"
-  authors: Kai Tzu-iunn Ong, Minseok Kang, Dongwook Choi, Junhee Cho, Seungju Kim, Seungwon Lim, Geunha Jang, Minwoo Oh, Bogyung Jeong, Sunghwan Kim, Taeyoon Kwon, Jinyoung Yeo
-  image: harness.png
-  url: https://arxiv.org/abs/2605.22505
-  journal: Under Review
-  summary: <strong>TLDR;</strong> We introduce <strong>SHOR</strong>, a dataset of optimization scenarios that enables <strong>priority ranking to directly evaluate and predict the true capabilities of harness optimizers</strong>.
-
-
 - title: "EXAONE 4.5 Technical Report"
   authors: <strong>LG AI Research</strong>
   url: https://arxiv.org/abs/2604.08644
